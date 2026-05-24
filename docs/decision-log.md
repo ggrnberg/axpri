@@ -26,7 +26,7 @@ axpri inherits all framework decisions `DEC-001 … DEC-037` as defaults, except
 
 | Date | Topic | Status |
 |------|-------|--------|
-| 2026-05-24 | Domain / TLD (`axpri.?`) and `app.axpri.?` subdomain | pending |
+| 2026-05-24 | Domain / TLD (`axpri.com`) and `app.axpri.com` subdomain | resolved |
 | 2026-05-24 | Brand assets (name treatment, logo, design tokens) | pending |
 
 ---
