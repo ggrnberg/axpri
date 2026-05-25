@@ -12,7 +12,14 @@ Site-specific troubleshooting entries captured while building and operating **ax
 
 ## Entries
 
-*None yet — append as you hit and solve real issues during the build.*
+### KB-axpri-001 — stray next-env.d.ts recommitted after app deletion
+- Symptom / trigger: after `git rm -r apps/docs`, `pnpm build` regenerated `apps/docs/next-env.d.ts`, which `git add .` then committed into the deleted directory.
+- Stage · component: SCAF-002 · Turborepo / Next.js build
+- Root cause: Next.js writes `next-env.d.ts` at build for any app still in the workspace task graph; building before `pnpm install` cleaned the workspace re-created the removed app's file.
+- Solution: remove the stray file, recommit; ensure `pnpm install` precedes `pnpm build` after removing an app.
+- Prevention: `pnpm install` before `pnpm build` after any `git rm` of an app; inspect `git status` before `git add .`.
+- Severity: low · Frequency: once · Tags: turborepo, nextjs, git, build
+- Promote? Yes → promoted to framework KB-008.
 
 <!-- Copy this block for each new entry:
 
