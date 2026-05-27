@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+/* dark mode as a class (shadcn v4 convention; used in B2) */
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================================
+   DESIGN TOKENS — axpri brand system emulating jeton.com.
+   Grounds: DEC-017, CONV-004
+   Three layers: (1) primitives in :root, (2) semantic roles + .dark,
+   ===================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------
+     1 · PRIMITIVES — raw palette. Never reference these in components;
+         use the semantic roles below (shadcn-compatible).
+     --------------------------------------------------------------- */
+
+  /* Brand orange (the hero) */
+  --orange-25:  #FFF7F5;
+  --orange-50:  #FFEFEA;
+  --orange-100: #FFDED5;
+  --orange-200: #FFBDAE;
+  --orange-300: #FE927E;
+  --orange-400: #F26851;
+  --orange-500: #F73B20;
+  --orange-600: #C73428;
+  --orange-700: #9C2622;
+  --orange-800: #752322;
+  --orange-900: #360802;
+
+  /* Neutrals — faintly warm, never cold/blue */
+  --neutral-25:  #FFFBF9;
+  --neutral-50:  #FBF5F4;
+  --neutral-100: #F1EBEA;
+  --neutral-200: #E2DDDB;
+  --neutral-300: #C8C3C1;
+  --neutral-400: #A29D9C;
+  --neutral-500: #847F7D;
+  --neutral-600: #666261;
+  --neutral-700: #4C4847;
+  --neutral-800: #332F2E;
+  --neutral-900: #18191A;
+
+  /* Brand absolutes */
+  --black: #000000;
+  --white: #FFFFFF;
+
+  /* Semantic hues */
+  --success-50:  #E6FAE9;
+  --success-100: #CCF4D3;
+  --success-500: #20A04E;
+  --success-600: #00893D;
+  --success-700: #046E30;
+
+  --warning-50:  #FFF1DE;
+  --warning-100: #FFE3BC;
+  --warning-500: #FBAC16;
+  --warning-600: #E09700;
+  --warning-700: #BD8215;
+
+  --error-50:  #FFECE9;
+  --error-100: #FFD9D2;
+  --error-500: #D73431;
+  --error-600: #BA1E20;
+  --error-700: #941617;
+
+  /* ---------------------------------------------------------------
+     2 · SEMANTIC ROLES (light = default). Components consume ONLY these.
+         Names follow the shadcn/Tailwind convention.
+     --------------------------------------------------------------- */
+  --background:           var(--neutral-25);
+  --foreground:           var(--orange-900);
+  --muted:                var(--neutral-100);
+  --muted-foreground:     var(--neutral-600);
+  --card:                 var(--white);
+  --card-foreground:      var(--orange-900);
+  --popover:              var(--white);
+  --popover-foreground:   var(--orange-900);
+  --border:               var(--neutral-200);
+  --input:                var(--neutral-200);
+  --ring:                 var(--orange-500);
+
+  --primary:              var(--orange-500);
+  --primary-foreground:   var(--white);
+  --secondary:            var(--neutral-100);
+  --secondary-foreground: var(--orange-900);
+  --accent:               var(--orange-50);
+  --accent-foreground:    var(--orange-700);
+
+  --success:              var(--success-600);
+  --success-foreground:   var(--white);
+  --warning:              var(--warning-500);
+  --warning-foreground:   var(--orange-900);
+  --destructive:          var(--error-500);
+  --destructive-foreground: var(--white);
+
+  /* ---------------------------------------------------------------
+     3 · TYPOGRAPHY — Load via next/font (SCAF-003 item 4).
+         Display: Hanken Grotesk. Body: Inter. Mono: JetBrains Mono.
+     --------------------------------------------------------------- */
+  --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Type scale — Major Third (1.250), base 16px */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5625rem;
+  --text-3xl:  1.953rem;
+  --text-4xl:  clamp(2.25rem, 1.9rem + 1.6vw, 2.441rem);
+  --text-5xl:  clamp(2.6rem, 2.0rem + 2.8vw, 3.052rem);
+  --text-6xl:  clamp(3.0rem, 2.2rem + 4.0vw, 3.815rem);
+  --text-7xl:  clamp(3.4rem, 2.4rem + 5.2vw, 4.768rem);
+
+  --leading-none:    1;
+  --leading-tight:   1.12;
+  --leading-snug:    1.3;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.75;
+
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extrabold: 800;
+
+  /* ---------------------------------------------------------------
+     4 · SPACING — 4px base unit
+     --------------------------------------------------------------- */
+  --space-unit: 0.25rem;
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+
+  /* ---------------------------------------------------------------
+     5 · RADII — soft + generous (Jeton's rounded geometry)
+     --------------------------------------------------------------- */
+  --radius-xs:   0.25rem;
+  --radius-sm:   0.5rem;
+  --radius-md:   0.75rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-2xl:  2rem;
+  --radius-3xl:  2.5rem;
+  --radius-full: 9999px;
+
+  --radius-button: var(--radius-full);
+  --radius-card:   var(--radius-xl);
+  --radius:        var(--radius-lg);
+
+  /* ---------------------------------------------------------------
+     6 · SHADOWS — soft, diffuse, warm-tinted
+     --------------------------------------------------------------- */
+  --shadow-color: 24 25 26;
+  --shadow-xs:  0 1px 2px 0 rgb(var(--shadow-color) / 0.05);
+  --shadow-sm:  0 1px 3px 0 rgb(var(--shadow-color) / 0.07),
+                0 1px 2px -1px rgb(var(--shadow-color) / 0.06);
+  --shadow-md:  0 4px 12px -2px rgb(var(--shadow-color) / 0.08),
+                0 2px 6px -2px rgb(var(--shadow-color) / 0.06);
+  --shadow-lg:  0 12px 28px -6px rgb(var(--shadow-color) / 0.10),
+                0 6px 12px -6px rgb(var(--shadow-color) / 0.07);
+  --shadow-xl:  0 28px 56px -12px rgb(var(--shadow-color) / 0.14),
+                0 10px 20px -10px rgb(var(--shadow-color) / 0.08);
+  --shadow-brand: 0 10px 30px -8px rgb(247 59 32 / 0.35);
+
+  /* ---------------------------------------------------------------
+     7 · MOTION — smooth + springy
+     --------------------------------------------------------------- */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+}
+
+/* =====================================================================
+   DARK THEME — burnt-orange-on-dark inversion. Apply on .dark or
+   [data-theme="dark"]. Primitives unchanged; only semantic roles flip.
+   ===================================================================== */
+.dark,
+[data-theme="dark"] {
+  --background:           var(--neutral-900);
+  --foreground:           var(--neutral-50);
+  --muted:                var(--neutral-800);
+  --muted-foreground:     var(--neutral-400);
+  --card:                 #1F2021;
+  --card-foreground:      var(--neutral-50);
+  --popover:              #1F2021;
+  --popover-foreground:   var(--neutral-50);
+  --border:               var(--neutral-800);
+  --input:                var(--neutral-800);
+  --ring:                 var(--orange-400);
+
+  --primary:              var(--orange-500);
+  --primary-foreground:   var(--white);
+  --secondary:            var(--neutral-800);
+  --secondary-foreground: var(--neutral-50);
+  --accent:               #2A1410;
+  --accent-foreground:    var(--orange-200);
+
+  --warning-foreground:   var(--orange-900);
+  --shadow-color: 0 0 0;
+}
+
+/* scan this package's own components so their classes aren't tree-shaken.
+   Path is relative to THIS FILE → ../ = packages/ui/src */
+
+/* =====================================================================
+   TAILWIND THEME MAPPING — Turn CSS variables into utilities.
+   ===================================================================== */
+  /* Colors — semantic roles */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  /* Color scales — primitives (so you can use orange-500, neutral-700, etc.) */
+  --color-orange-25: var(--orange-25);
+  --color-orange-50: var(--orange-50);
+  --color-orange-100: var(--orange-100);
+  --color-orange-200: var(--orange-200);
+  --color-orange-300: var(--orange-300);
+  --color-orange-400: var(--orange-400);
+  --color-orange-500: var(--orange-500);
+  --color-orange-600: var(--orange-600);
+  --color-orange-700: var(--orange-700);
+  --color-orange-800: var(--orange-800);
+  --color-orange-900: var(--orange-900);
+
+  --color-neutral-25: var(--neutral-25);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+
+  --color-success-50: var(--success-50);
+  --color-success-100: var(--success-100);
+  --color-success-500: var(--success-500);
+  --color-success-600: var(--success-600);
+  --color-success-700: var(--success-700);
+
+  --color-warning-50: var(--warning-50);
+  --color-warning-100: var(--warning-100);
+  --color-warning-500: var(--warning-500);
+  --color-warning-600: var(--warning-600);
+  --color-warning-700: var(--warning-700);
+
+  --color-error-50: var(--error-50);
+  --color-error-100: var(--error-100);
+  --color-error-500: var(--error-500);
+  --color-error-600: var(--error-600);
+  --color-error-700: var(--error-700);
+
+  /* Radii — custom shapes */
+  --radius-button: var(--radius-button);
+  --radius-card: var(--radius-card);
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
+
+  /* Fonts */
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  /* Text scale (overrides Tailwind's defaults) */
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-4xl: var(--text-4xl);
+  --text-5xl: var(--text-5xl);
+  --text-6xl: var(--text-6xl);
+  --text-7xl: var(--text-7xl);
+
+  /* Shadows — brand emphasis */
+  --shadow-brand: var(--shadow-brand);
+}
+@source "../";

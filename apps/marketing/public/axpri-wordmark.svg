@@ -1,0 +1,22 @@
+<svg width="520" height="140" viewBox="0 0 520 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="axpri">
+  <!-- ============================================================
+       LOCKUP = symbol + wordmark.
+       The wordmark is set live in Hanken Grotesk with a system
+       fallback. For PRODUCTION, convert the text to outlines
+       (path) from the actual Hanken Grotesk ExtraBold file so the
+       mark renders identically without the font installed.
+       ============================================================ -->
+  <!-- symbol -->
+  <g transform="translate(10,14)">
+    <rect x="0" y="0" width="112" height="112" rx="34" fill="#F73B20"/>
+    <circle cx="45" cy="45" r="27" fill="#FFFFFF"/>
+    <circle cx="45" cy="45" r="13.5" fill="#F73B20"/>
+    <circle cx="74" cy="74" r="19" fill="#F73B20"/>
+    <circle cx="74" cy="74" r="14.5" fill="#FFFFFF"/>
+  </g>
+  <!-- wordmark -->
+  <text x="148" y="92"
+        font-family="'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif"
+        font-size="78" font-weight="800" letter-spacing="-2.5"
+        fill="#360802">axpri</text>
+</svg>

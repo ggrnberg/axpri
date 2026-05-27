@@ -1,0 +1,11 @@
+{
+  "name": "axpri",
+  "short_name": "axpri",
+  "icons": [
+    { "src": "/android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#F73B20",
+  "background_color": "#FFFBF9",
+  "display": "standalone"
+}

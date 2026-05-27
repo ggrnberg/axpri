@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="axpri symbol">
+  <!-- soft squircle tile, brand orange -->
+  <rect x="4" y="4" width="92" height="92" rx="30" fill="#F73B20"/>
+  <!-- coin ring (the "o"-counter / coin motif) -->
+  <circle cx="40" cy="40" r="24" fill="#FFFFFF"/>
+  <circle cx="40" cy="40" r="12" fill="#F73B20"/>
+  <!-- overlapping coin: orange knockout gap, then white dot -->
+  <circle cx="66" cy="66" r="17" fill="#F73B20"/>
+  <circle cx="66" cy="66" r="13" fill="#FFFFFF"/>
+</svg>
